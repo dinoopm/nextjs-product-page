@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { NextIntlClientProvider } from 'next-intl';
-import './globals.css';
+import '../globals.css';
 
 interface Props {
   children: ReactNode;
