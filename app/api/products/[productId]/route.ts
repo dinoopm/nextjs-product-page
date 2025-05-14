@@ -104,14 +104,14 @@ export async function GET(
   { params }: { params: Promise<{ productId: string }>  }
 ) {
   const { productId } = await params;
-  const locale = request.nextUrl.searchParams.get('locale') ?? 'en';
+  const locale = request.nextUrl.searchParams.get('locale') ?? 'en-us';
 
   const localizedMap = productData[productId];
   if (!localizedMap) {
     return NextResponse.json({ error: 'Product not found' }, { status: 404 });
   }
 
-  const localized = localizedMap[locale] ?? localizedMap['en'];
+  const localized = localizedMap[locale] ?? localizedMap['en-us'];
 
   return NextResponse.json({
     product: localized.product,
